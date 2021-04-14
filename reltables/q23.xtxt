@@ -1,0 +1,6 @@
+set terminal postscript color
+set title  "2-3-relatives"  
+set key top right
+set xlabel  "Difference of date of death" 
+set ylabel  "Probability"
+plot "q23.txt" using 1:2  notitle

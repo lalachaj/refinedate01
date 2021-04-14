@@ -1,0 +1,6 @@
+set terminal postscript color
+set title  "Parent-Child"  
+set key top right
+set xlabel  "Difference of date of death" 
+set ylabel  "Probability"
+plot "qparc.txt" using 1:2  notitle

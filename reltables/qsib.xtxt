@@ -1,0 +1,6 @@
+set terminal postscript color
+set title  "Siblings"  
+set key top right
+set xlabel  "Difference of date of death" 
+set ylabel  "Probability"
+plot "qsib.txt" using 1:2  notitle

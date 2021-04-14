@@ -1,0 +1,18 @@
+#!/usr/bin/perl -w
+
+$DIS="../reltables/qparc.txt" ; ## parent-child tale 
+
+$BIN="../bin" ;
+
+$a = "I2600" ;  ## daughter
+system "$BIN/gsmooth -i $a.txt -o  $a:sm.txt " ; 
+
+$b = "I2457" ;  ## father
+system "$BIN/gsmooth -i $b.txt -o  $b:sm.txt " ; 
+
+$A="$a:sm.txt" ; 
+$B="$b:sm.txt" ; 
+
+## A child, B parent
+system "$BIN/refinedate  -a $A -b $B -d $DIS  -z ab.txt  -x refa.txt -y refb.txt > refinedate.log " ;
+

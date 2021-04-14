@@ -1,0 +1,5 @@
+#!/bin/sh   
+gsmooth -i rel23.txt -o q23.txt -f 3  -s    ## 2-3 relative 3 long filter + symmetric
+gsmooth -i relgc.txt -o qgc.txt -f 3        ## grandparent-child 3 long filter
+gsmooth -i parchild.txt -o qparc.txt        ## parent-child  karge counts;  no filter
+gsmooth -i relsib.txt -o qsib.txt -f 3  -s  ## Siblings 3 long filter + symmetric

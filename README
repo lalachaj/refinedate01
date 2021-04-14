@@ -1,0 +1,51 @@
+We document 2 programs: refinedate and gsmooth 
+
+1) 
+refinedate -a <rawadate> [-x <refadate>] -b <rqawbdate> -y <refbdate>  -d <disfile> -z <fulljoint> 
+rawadate and rawbdate are initial prior estimates.  
+Format 2 column data: 
+
+date probability
+The second column can be a histogram (count) as refinedate normalizes to sum to 1.  
+
+Convention:  more ancient dates are more negative.  Use BP. or BCE. NOT CE
+
+
+disfile  
+Distribution of difference of date.  
+Prior distribution of (death date of A) - (death date of B) 
+Note:  If we expect that A dies more recently this will be positive (in the mean) 
+fornmat: 
+<date difference>  probability 
+Again, a histogram (count) is acceptable in the last column.  
+
+It is up to the user to supply this table
+but 4 suitable tables are provided in .../reldates 
+
+*** all 3 input files need to be at a resolution of 1 year *** 
+
+
+================
+gsmooth -i <raw> -o <smooth> [-s] [-f filterlength]  
+
+Smooths the raw file which can be coursely quantized (say at 5 year intervals).  
+smooth is the output file 
+
+Optional parameters: 
+
+-f filterlength :: apply a rectaangular filter,  filterlength must be odd.
+So for eeample if filterlength is 3 we average 3 conseitive values of <raw> and replace the central value.  
+This damps down spurious "wiggles" but does tend to slightly reduce the peak.  
+
+-s   force symmetry.   For some relative pairs, such as siblings, there may be no information about birth order, 
+and so it is appropriate to force the distribution of disfile to be symmetric.  
+
+../reltables/mksmooth shows how our tables were made and the parameters used for gsmooth
+
+More information is in ./refinedate.pdf 
+
+Nick  Patterson  April 2021
+
+
+ 
+
